@@ -110,9 +110,16 @@ new Product('bubblegum', 'images/bubblegum.jpg');
 new Product('chair', 'images/chair.jpg');
 new Product('cthulhu', 'images/cthulhu.jpg');
 new Product('dog-duck', 'images/dog-duck.jpg');
-new Product;
-new Product;
-new Product;
+new Product('dragon', 'images/dragon.jpg');
+new Product('pen', 'images/pen');
+new Product('pet-sweep', 'images/pet-sweep');
+new Product('scissors', 'scissors');
+new Product('shark', 'images/shark');
+new Product('sweep', 'images/sweep');
+new Product('tauntaun', 'images/tauntaun');
+new Product('unicorn', 'images/unicorn');
+new Product('water-can', 'images/water-can');
+new Product('wine-glass', 'images/wine-glass');
 
 
 

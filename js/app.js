@@ -10,9 +10,9 @@ console.log('hello js');
 Product.allProductsArray = [];
 let ProductContainer = document.querySelector('section');
 let results = document.querySelector('section + div');
-let pic1 = document.querySelector('section img:first-child');
-let pic2 = document.querySelector('section img:nth-child(2)');
-let pic3 = document.querySelector('section img:first-child(3)');
+let pic1 = document.getElementById('pic1');
+let pic2 = document.getElementById('pic2');
+let pic3 = document.getElementById('pic3');
 console.log(ProductContainer, results, pic1, pic2, pic3);
 
 let clicks = 0;
@@ -28,4 +28,4 @@ function Product(name, src){
   Product.allProductsArray.push(this);  
 }
 
-console.log(is Product working? ',Product.allProductsArray');
+console.log('is Product working? ',Product.allProductsArray);

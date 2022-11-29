@@ -25,7 +25,100 @@ function Product(name, src){
   this.src = src;
   this.views = 0;
   this.click = 0;
-  Product.allProductsArray.push(this);  
+  Product.allProductsArray.push(this);
 }
 
 console.log('is Product working? ',Product.allProductsArray);
+
+function getRandomNumber(){
+  return Math.floor(Math.random() * Product.allProductsArray.length);
+}
+
+function renderProducts(){
+  let product1 = getRandomNumber();
+  let product2 = getRandomNumber();
+  let product3 = getRandomNumber();
+
+  if (pic1 === pic2 || pic1 === pic3){
+    pic1 = getRandomNumber();
+  }
+
+  if (pic2 === pic3 || pic2 === pic1){
+    pic2 = getRandomNumber();
+  }
+  if(pic3 === pic2 || pic3 === pic1){
+    pic3 = getRandomNumber();
+  }
+  
+  console.log(product1, product2, product3);
+
+  
+
+  pic1.src = Product.allProductsArray[product1].src;
+  pic2.src = Product.allProductsArray[product2].src;
+  pic3.src = Product.allProductsArray[product3].src;
+
+  pic1.alt = Product.allProductsArray[product1].name;
+  pic2.alt = Product.allProductsArray[product2].name;
+  pic3.alt = Product.allProductsArray[product3].name;
+
+  Product.allProductsArray[product1].views++;
+  Product.allProductsArray[product2].views++;
+  Product.allProductsArray[product3].views++;
+}
+
+function handleProductClick(event){
+  console.log('are we clicking? ', event);
+  if(event.target === productContainer){
+    alert('Please click on a product');
+  }  
+  clicks++;
+  let clickProduct = event.target.alt;
+  console.log(clickProduct);
+  for(let i = 0; 1 < Product.allProductsArray.length; 1++){
+    if(clickProduct === Product.allProductsArray[i].name){
+        Product.allProductsArray[i].click++;
+        break
+    }
+  }
+}
+
+if(clicks === maxClicks){
+    productContainer.removeEventListener('click', handleProductClick);
+    results.addEventListener('click', renderResults);
+    productContainer.className = 'no voting';
+}   else{
+    renderProducts();
+}
+
+
+function renderResults(){
+    let ul = document.getElementById('ul');
+    for(let i =0; i < Product.allProductsArray.length; i++){
+        let li = document.createElement('li');
+        li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} and were clicked on ${Product.allProductsArray[i].click} times`;
+        ul.appendChild(li);
+    }
+}
+
+new Product('bag', 'images/bag.jpg');
+new Product('banana', 'images/banana.jpg');
+new Product('bathroom', 'images/bathroom.jpg');
+new Product('boots', 'images/boots.jpg');
+new Product('breakfast', 'images/breakfast.jpg');
+new Product('bubblegum', 'images/bubblegum.jpg');
+new Product('chair', 'images/chair.jpg');
+new Product('cthulhu', 'images/cthulhu.jpg');
+new Product('dog-duck', 'images/dog-duck.jpg');
+new Product
+new Product
+new Product
+
+
+
+
+
+
+
+
+renderProducts();

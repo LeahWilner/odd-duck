@@ -151,7 +151,7 @@ function showResultsChart(){
 
   const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
+  let chart = new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: labels,

@@ -132,3 +132,54 @@ function renderResults(){
 productContainer.addEventListener('click', handleProductClick);
 
 renderProducts();
+
+
+function showResultsChart(){
+  let labels = [];
+  let voteCounts = [];
+  let showCounts = [];
+  let votePercentage = [];
+
+  for(let i = 0; i < Product.allProductsArray.length; i++){
+    labels[i] = Product.allProductsArray[i].name;
+    voteCounts[i] = Product.allProductsArray[i].click;
+    showCounts[i] = Product.allProductsArray[i].views;
+    votePercentage[i] = Math.floor(100 * voteCounts[i] /showCounts[i] );
+  }
+
+  console.log('labels',labels);
+
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Vote Count',
+        data: voteCounts,
+        backgroundColor: 'rgb(200,0,0)'
+      },
+      {
+        label: 'Times Shown',
+        data: showCounts,
+        backgroundColor: 'rgb(0,200,0)',
+      },
+      {
+        label: 'Vote %',
+        data: votePercentage
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+}
+
+showResultsChart();

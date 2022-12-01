@@ -50,3 +50,13 @@ header {
     height: 150px;
   } 
   
+  img{
+    height: 300px;
+    width: 300px;
+    margin: 25px;  
+  }
+
+  section.no-voting img:hover{
+    border: 5px solid rebeccapurple;
+    cursor: none;
+  }

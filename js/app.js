@@ -4,7 +4,7 @@ console.log('hello js');
 
 Product.allProductsArray = [];
 let productContainer = document.querySelector('section');
-let results = document.querySelector('section + div');
+let results = document.querySelector('section + button');
 let pic1 = document.getElementById('pic1');
 let pic2 = document.getElementById('pic2');
 let pic3 = document.getElementById('pic3');
@@ -120,6 +120,9 @@ function renderResults(){
     li.textContent = `${Product.allProductsArray[i].name} had ${Product.allProductsArray[i].views} views and was clicked on ${Product.allProductsArray[i].click} times`;
     ul.appendChild(li);
   }
+  //call our chart
+  console.log('are our objects ready for the chart?',Product.allProductsArray);
+  showResultsChart();
 }
 
 
@@ -144,15 +147,28 @@ function showResultsChart(){
     labels[i] = Product.allProductsArray[i].name;
     voteCounts[i] = Product.allProductsArray[i].click;
     showCounts[i] = Product.allProductsArray[i].views;
-    votePercentage[i] = Math.floor(100 * voteCounts[i] /showCounts[i] );
+
+
+    // let math;
+    // if(Pizza.allPizzasArray[i].click === 0){
+    //   math = `Zero clicks and shown ${Pizza.allPizzasArray[i].views} times.`;
+    // } else {
+    //   math = Math.round(((Pizza.allPizzasArray[i].click / Pizza.allPizzasArray[i]['views']).toFixed(2) * 100)) + '%';
+    // }
+    if(voteCounts[i] === 0 || showCounts[i] === 0){
+      votePercentage[i] = `Zero clicks and shown ${showCounts[i]} times.`;
+    }else {
+      votePercentage[i] = Math.floor(100 * (voteCounts[i] / showCounts[i]) );
+    }
+    // votePercentage[i] = Math.floor(100 * (voteCounts[i] / showCounts[i]) );
   }
 
-  console.log('labels',labels);
+  console.log('chart data:',labels,voteCounts, showCounts, votePercentage);
 
   const ctx = document.getElementById('myChart');
 
   let chart = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'bar',
     data: {
       labels: labels,
       datasets: [{
@@ -165,10 +181,11 @@ function showResultsChart(){
         data: showCounts,
         backgroundColor: 'rgb(0,200,0)',
       },
-      {
-        label: 'Vote %',
-        data: votePercentage
-      }]
+      // {
+      //   label: 'Vote %',
+      //   data: votePercentage
+      // }
+      ]
     },
     options: {
       scales: {
@@ -182,4 +199,4 @@ function showResultsChart(){
 
 }
 
-showResultsChart();
+

@@ -30,17 +30,17 @@ if(savedProductString){
   let arrayOfNotProductObject = JSON.parse(savedProductString);
   console.log('objects that dont know they are products?', arrayOfNotProductObject);
 
-//   for(let i = 0; i < arrayOfNotProductObject.length; i++){
-//     new Product(
-//       arrayOfNotProductObject[i].name,
-//       arrayOfNotProductObject[i].src,
-//       arrayOfNotProductObject[i].views,
-//       arrayOfNotProductObject[i].click
-//     );
-//   }
-//   console.log('products', Product.allProductsArray);
-// }
-// else{
+  //   for(let i = 0; i < arrayOfNotProductObject.length; i++){
+  //     new Product(
+  //       arrayOfNotProductObject[i].name,
+  //       arrayOfNotProductObject[i].src,
+  //       arrayOfNotProductObject[i].views,
+  //       arrayOfNotProductObject[i].click
+  //     );
+  //   }
+  //   console.log('products', Product.allProductsArray);
+  // }
+  // else{
 
 
   new Product('bag', 'images/bag.jpg');
@@ -62,7 +62,7 @@ if(savedProductString){
   new Product('unicorn', 'images/unicorn.jpg');
   new Product('water-can', 'images/water-can.jpg');
   new Product('wine-glass', 'images/wine-glass.jpg');
-// }
+}
 
 // console.log('is Product working? ', Product.allProductsArray);
 
@@ -205,10 +205,10 @@ function showResultsChart(){
         data: showCounts,
         backgroundColor: 'rgb(0,200,0)',
       },
-      // {
-      //   label: 'Vote %',
-      //   data: votePercentage
-      // }
+        // {
+        //   label: 'Vote %',
+        //   data: votePercentage
+        // }
       ]
     },
     options: {
@@ -222,5 +222,3 @@ function showResultsChart(){
 
 
 }
-
-

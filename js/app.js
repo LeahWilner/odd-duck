@@ -30,17 +30,17 @@ if(savedProductString){
   let arrayOfNotProductObject = JSON.parse(savedProductString);
   console.log('objects that dont know they are products?', arrayOfNotProductObject);
 
-  //   for(let i = 0; i < arrayOfNotProductObject.length; i++){
-  //     new Product(
-  //       arrayOfNotProductObject[i].name,
-  //       arrayOfNotProductObject[i].src,
-  //       arrayOfNotProductObject[i].views,
-  //       arrayOfNotProductObject[i].click
-  //     );
-  //   }
-  //   console.log('products', Product.allProductsArray);
-  // }
-  // else{
+  for(let i = 0; i < arrayOfNotProductObject.length; i++){
+    new Product(
+      arrayOfNotProductObject[i].name,
+      arrayOfNotProductObject[i].src,
+      arrayOfNotProductObject[i].views,
+      arrayOfNotProductObject[i].click
+    );
+  }
+  console.log('products', Product.allProductsArray);
+}
+else{
 
 
   new Product('bag', 'images/bag.jpg');
@@ -173,12 +173,12 @@ function showResultsChart(){
     showCounts[i] = Product.allProductsArray[i].views;
 
 
-    // let math;
-    // if(Pizza.allPizzasArray[i].click === 0){
-    //   math = `Zero clicks and shown ${Pizza.allPizzasArray[i].views} times.`;
-    // } else {
-    //   math = Math.round(((Pizza.allPizzasArray[i].click / Pizza.allPizzasArray[i]['views']).toFixed(2) * 100)) + '%';
-    // }
+    let math;
+    if(Product.allProductsArray[i].click === 0){
+      math = `Zero clicks and shown ${Product.allProductsArray[i].views} times.`;
+    } else {
+      math = Math.round(((Product.allProductsArray[i].click / Product.allProductsArray[i]['views']).toFixed(2) * 100)) + '%';
+    }
     if(voteCounts[i] === 0 || showCounts[i] === 0){
       votePercentage[i] = `Zero clicks and shown ${showCounts[i]} times.`;
     }else {
@@ -205,10 +205,10 @@ function showResultsChart(){
         data: showCounts,
         backgroundColor: 'rgb(0,200,0)',
       },
-        // {
-        //   label: 'Vote %',
-        //   data: votePercentage
-        // }
+      // {
+      //   label: 'Vote %',
+      //   data: votePercentage
+      // }
       ]
     },
     options: {

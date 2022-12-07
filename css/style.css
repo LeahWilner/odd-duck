@@ -1,6 +1,9 @@
 header {
-    background-color: lightgrey;
+    background-color: #6161e8;
     border: 1px solid black;
+    font-size: 32px;
+    text-decoration:none;
+    width: 100%;
   }
   
    nav ul {
@@ -16,6 +19,7 @@ header {
     font-size: 1em;
     padding: 5px;
     margin-left: 3px;
+    
   }
   
   main {
@@ -25,13 +29,13 @@ header {
   aside {
     background-color: lightpink;
     border: 1px solid black;
-    height: 1000px;
+    height: 100px;
     width: 30%;
   }
   
   article {
     align-items: flex-start;
-    background-color: lightblue;
+    background-color: rgb(235, 186, 87);
     border: 1px solid black;
     display: flex;
     flex-direction: row;
@@ -47,7 +51,7 @@ header {
   }
   
   footer {
-    background-color: lightgrey;
+    background-color: #6161e8;
     border: 1px solid black;
     height: 150px;
   } 
@@ -56,6 +60,7 @@ header {
     height: 300px;
     width: 300px;
     margin: 25px;  
+    border-radius: 10%;
   }
 
   section.no-voting img:hover{
